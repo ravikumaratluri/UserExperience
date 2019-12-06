@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+
+
+        .main-head {
+            height: 150px;
+            background: #FFF;
+
+        }
+
+        .sidenav {
+            height: 100%;
+            background-color: rgb(1, 207, 104);
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+
+        .main {
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+        }
+
+        @media screen and (max-width: 450px) {
+            .login-form {
+                margin-top: 2%;
+            }
+
+            .register-form {
+                margin-top: 10%;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            .main {
+                margin-left: 40%;
+            }
+
+            .sidenav {
+                width: 40%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+            }
+
+            .login-form {
+                margin-top: 50%;
+            }
+
+            .register-form {
+                margin-top: 20%;
+            }
+        }
+
+
+        .login-main-text {
+            margin-top: 20%;
+            padding: 60px;
+            color: #fff;
+        }
+
+        .login-main-text h2 {
+            font-weight: 300;
+        }
+
+        .btn-black {
+            background-color: #000 !important;
+            color: #fff;
+        }
+
+        select {
+            width: 150px;
+            height: 40px;
+            margin: 10px;
+        }
+
+        select:focus {
+            min-width: 150px;
+            height: 40px;
+            width: auto;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-custom navbar-light fixed-top py-3" id="mainNav">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                            <li class="nav-item">
+                                <b> <a class="nav-link navbar-custom js-scroll-trigger" >Home</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b> <a class="nav-link js-scroll-trigger" href="./room.html">Room</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b><a class="nav-link js-scroll-trigger" href="./aboutus.html">About Us</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b><a class="nav-link js-scroll-trigger" href="./contactus.html">Contact Us</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b><a class="nav-link js-scroll-trigger" href="./login.html">Log In&nbsp;&nbsp;&nbsp;</a></b>
+                            </li>
+                            <!-- <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="http://laurelreview.org/meet-the-editors">About us</a>
+                  </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    <div class="sidenav">
+        <div class="login-main-text">
+            <h2>Study Room Booking<br> Login Page</h2>
+            <p>Login or register from here to access.</p>
+        </div>
+    </div>
+    <div class="main">
+        <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+                <form>
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <input id="userName" type="text" class="form-control" required placeholder="User Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input id="password" type="password" class="form-control" required placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label>User Type</label>
+
+                        <select id="mySelect" width="100px" name="userType" form="userType">
+                            <option value="Admin">Admin</option>
+                            <option value="User">User</option>
+                        </select>
+                    </div>
+                    <button onclick="myFunction()" type="submit" class="btn btn-primary">Login</button>
+                    <a href="./registration.html"><input type="button" value="Register" class="btn btn-secondary"></a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="data.json">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var user = sessionStorage.getItem("users");
+        if (user == null) {
+            var users = [];
+            var eachUser = {};
+            eachUser.userName = "user";
+            eachUser.password = "pwd";
+            users.push(eachUser);
+            sessionStorage.setItem("users", JSON.stringify(users));
+        }
+        function myFunction() {
+            var inputUser = document.getElementById("userName").value;
+            var inputPwd = document.getElementById("password").value;
+
+            var selectedVal = document.getElementById("mySelect").value
+            var users = JSON.parse(sessionStorage.getItem("users"));
+            for (var i = 0; i < users.length; i++) {
+                if (users[i]["userName"] == inputUser &&
+                    users[i]["password"] == inputPwd && selectedVal == 'User') {
+                    return window.open("./User/user-home.html");
+                }
+            }
+            if (inputUser == 'bearcat' &&
+                inputPwd == 'bearcat' && selectedVal == 'Admin') {
+                window.open("./home.html")
+            } else {
+                alert("Invalid username or password");
+            }
+        }
+
+    </script>
+
+    </script>
+</body>
+
+</html>

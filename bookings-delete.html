@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Booking</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .main-head {
+            height: 150px;
+            background: #FFF;
+
+        }
+
+        .sidenav {
+            height: 100%;
+            background-color: rgb(1, 207, 104);
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .main {
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+        }
+
+        @media screen and (max-width: 450px) {
+            .login-form {
+                margin-top: 2%;
+            }
+
+            .register-form {
+                margin-top: 10%;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            /* .main {
+                margin-left: 40%;
+            } */
+
+            .sidenav {
+                width: 40%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+            }
+
+            .login-form {
+                margin-top: 10%;
+            }
+
+            .register-form {
+                margin-top: 20%;
+            }
+        }
+
+
+        .login-main-text {
+            margin-top: 20%;
+            padding: 60px;
+            color: #fff;
+        }
+
+        .login-main-text h2 {
+            font-weight: 300;
+        }
+
+        .btn-black {
+            background-color: #000 !important;
+            color: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+        }
+
+        /* Remove extra left and right margins, due to padding */
+        .row {
+            margin: 0 -5px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive columns */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 30px
+        }
+
+        .navbar-custom {
+            color: #FFFFFF;
+            background-color: rgb(1, 207, 104);
+        }
+
+        .card:hover {
+            background-color: #d4efda;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-custom navbar-light fixed-top py-3" id="mainNav">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                            <a>
+                                <h3>Study Room Booking System&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </h3>
+                            </a>
+                            <li class="nav-item">
+                                <b> <a class="nav-link navbar-custom js-scroll-trigger" href="./home.html">Home</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b> <a class="nav-link js-scroll-trigger" href="./room.html">Room</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b><a class="nav-link js-scroll-trigger" href="./aboutus.html">About Us</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b><a class="nav-link js-scroll-trigger" href="./users.html">Users</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b><a class="nav-link js-scroll-trigger" href="./mainHome.html">Log Out</a></b>
+                            </li>
+                            <!-- <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="http://laurelreview.org/meet-the-editors">About us</a>
+                          </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    <!-- <div class="sidenav">
+        <div class="login-main-text">
+            <h2>Study Room Booking<br> Login Page</h2>
+            <p>Login or register from here to access.</p>
+        </div>
+    </div> -->
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bookings</h3>
+    </div>
+    <br>
+    
+
+    <br>
+    
+
+    <div class="row">
+        <div class="col-md-1 col-sm-12">
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <div onclick="roomClick()" class="card" width="600px">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <h5>Booking Id</h5>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Date</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>From</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>To</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Status</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <button onclick="modifyBooking()"  class="btn btn-info btn-sm">Modify</button>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <p>343434343</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>12/09/2019</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>4:30 PM</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>6:30 PM</p>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <p>Booked</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-12">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-1 col-sm-12">
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <div onclick="roomClick()" class="card" width="600px">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <h5>Booking Id</h5>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Date</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>From</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>To</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Status</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Modify</button>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <p>676756789</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>12/07/2019</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>11:30 AM</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>2:30 PM</p>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <p>Booked</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-12">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-1 col-sm-12">
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <div onclick="roomClick()" class="card" width="600px">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <h5>Booking Id</h5>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Date</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>From</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>To</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Status</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Modify</button>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <p>878767564</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>12/08/2019</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>9:30 AM</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>12:30 PM</p>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <p>Booked</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-12">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-1 col-sm-12">
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <div onclick="roomClick()" class="card" width="600px">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <h5>Booking Id</h5>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Date</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>From</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>To</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Status</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Modify</button>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <p>567345678</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>12/10/2019</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>4:30 PM</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>8:30 PM</p>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <p>Booked</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-12">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-1 col-sm-12">
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <div onclick="roomClick()" class="card" width="600px">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <h5>Booking Id</h5>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Date</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>From</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>To</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Status</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Modify</button>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <p>678456734</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>12/12/2019</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>8:30 AM</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>10:30 AM</p>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <p>Booked</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-12">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-1 col-sm-12">
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <div onclick="roomClick()" class="card" width="600px">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <h5>Booking Id</h5>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Date</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>From</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>To</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Status</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Modify</button>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <p>675678980</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>12/10/2019</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>4:30 PM</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>8:30 PM</p>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <p>Booked</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-12">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-1 col-sm-12">
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <div onclick="roomClick()" class="card" width="600px">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <h5>Booking Id</h5>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Date</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>From</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>To</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Status</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Modify</button>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <p>123123123</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>12/08/2019</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>10:30 AM</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>12:30 pm</p>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <p>Booked</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-12">
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-1 col-sm-12">
+        </div>
+        <div class="col-md-10 col-sm-12">
+            <div onclick="roomClick()" class="card" width="600px">
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <h5>Booking Id</h5>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Date</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>From</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>To</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <h5>Status</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                    </div>
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Modify</button>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <button class="btn btn-info btn-sm">Delete</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <p>123123123</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>12/08/2019</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>10:30 AM</p>
+                    </div>
+
+                    <div style="text-align:left;" class="col-md-2 col-sm-12">
+                        <p>12:30 pm</p>
+                    </div>
+
+                    <div class="col-md-1 col-sm-12">
+                        <p>Booked</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-1 col-sm-12">
+        </div>
+    </div>
+    <script type="text/javascript">
+
+       function modifyBooking(){
+           
+           window.open("./modify-booking.html")
+       }
+        
+
+        
+
+    </script>
+</body>
+
+</html>

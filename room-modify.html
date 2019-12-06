@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Room Modify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            font-family: "Lato", sans-serif;
+        }
+        .main-head {
+            height: 150px;
+            background: #FFF;
+
+        }
+        .sidenav {
+            height: 100%;
+            background-color: rgb(1, 207, 104);
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+        .main {
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+        }
+
+        @media screen and (max-width: 450px) {
+            .login-form {
+                margin-top: 2%;
+            }
+
+            .register-form {
+                margin-top: 10%;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            /* .main {
+                margin-left: 40%;
+            } */
+
+            .sidenav {
+                width: 40%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+            }
+
+            .login-form {
+                margin-top: 10%;
+            }
+
+            .register-form {
+                margin-top: 20%;
+            }
+        }
+
+
+        .login-main-text {
+            margin-top: 20%;
+            padding: 60px;
+            color: #fff;
+        }
+
+        .login-main-text h2 {
+            font-weight: 300;
+        }
+
+        .btn-black {
+            background-color: #000 !important;
+            color: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+        }
+
+        /* Remove extra left and right margins, due to padding */
+        .row {
+            margin: 0 -5px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive columns */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 30px
+        }
+        .navbar-custom {
+    color: #FFFFFF;
+    background-color: rgb(1, 207, 104);
+}
+
+.card:hover {
+background-color: #d4efda;
+}
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-lg navbar-custom navbar-light fixed-top py-3" id="mainNav">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                            <a>
+                                <h3>Study Room Booking System&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </h3>
+                            </a>
+                            <li class="nav-item">
+                                <b> <a class="nav-link navbar-custom js-scroll-trigger" href="./home.html">Home</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b> <a class="nav-link js-scroll-trigger" href="./room.html">Room</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b><a class="nav-link js-scroll-trigger" href="./aboutus.html">About Us</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b><a class="nav-link js-scroll-trigger" href="./users.html">Users</a></b>
+                            </li>
+                            <li class="nav-item">
+                                <b><a class="nav-link js-scroll-trigger" href="./mainHome.html">Log Out</a></b>
+                            </li>
+                            <!-- <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="http://laurelreview.org/meet-the-editors">About us</a>
+                          </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    <!-- <div class="sidenav">
+        <div class="login-main-text">
+            <h2>Study Room Booking<br> Login Page</h2>
+            <p>Login or register from here to access.</p>
+        </div>
+    </div> -->
+    <div class="main">
+        <div class="login-form">
+                <div class="row">
+                        <div class="col-md-3">
+                            </div>
+                            <div class="col-md-3">
+                                
+                                </div>
+                                <div class="col-md-2">
+                                
+                                    </div>
+                                <div class="col-md-2">
+                                        <button onclick="window.open('./bookings.html')" class="btn btn-success btn-lg">Bookings</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                            <button class="btn btn-success btn-lg">Add Room</button>
+                                        </div>
+                        </div>
+                        <br>
+                        <br>
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <div onclick="roomClick()" class="card">
+                    <img src="./study-room-1.jpg" width="100%" style="margin-bottom: 10px; border-radius: 30px">
+                        <h3>Room 1</h3>
+                        <p>Location: 1st floor, Library</p>
+                        <p class="mb-1" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                        Free Time: 6:30PM
+                        </p>
+                        <p class="mb-0" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                        Date: 12/08/2019
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                        <div onclick="roomClick()" class="card">
+                    <img src="./study-room-2.jpg" width="100%" style="margin-bottom: 10px; border-radius: 30px">
+
+                                <h3>Room 2</h3>
+                                <p>Location: 1st floor, Library</p>
+                                <p class="mb-1" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                Free Time: 10:30AM
+                                </p>
+                                <p class="mb-0" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                Date: 12/08/2019
+                                </p>
+                            </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                        <div onclick="roomClick()" class="card">
+                    <img src="./study-room-3.jpg" width="100%" style="margin-bottom: 10px; border-radius: 30px">
+
+                                <h3>Room 3</h3>
+                                <p>Location: 1st floor, Library</p>
+                                <p class="mb-1" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                Free Time: 12:45PM
+                                </p>
+                                <p class="mb-0" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                Date: 12/08/2019
+                                </p>
+                            </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12">
+                        <div onclick="roomClick()" class="card">
+                    <img src="./study-room-4.jpg" width="100%" style="margin-bottom: 10px; border-radius: 30px">
+
+                                <h3>Room 4</h3>
+                                <p>Location: 1st floor, Library</p>
+                                <p class="mb-1" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                Free Time: 4:30PM
+                                </p>
+                                <p class="mb-0" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                Date: 12/09/2019
+                                </p>
+                            </div>
+                </div>
+            </div>
+<br>
+
+            <div class="row">
+                    <div class="col-md-3 col-sm-12">
+                            <div onclick="roomClick()" class="card">
+                    <img src="./study-room-2.jpg" width="100%" style="margin-bottom: 10px; border-radius: 30px">
+
+                                    <h3>Room 5</h3>
+                                   <p>Location: 2nd floor, Library</p>
+                                    <p class="mb-1" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                    Free Time: 6:30AM
+                                    </p>
+                                    <p class="mb-0" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                    Date: 12/10/2019
+                                    </p>
+                                </div>
+                    </div>
+    
+                    <div class="col-md-3 col-sm-12">
+                            <div onclick="roomClick()" class="card">
+                    <img src="./study-room-4.jpg" width="100%" style="margin-bottom: 10px; border-radius: 30px">
+
+                                    <h3>Room 6</h3>
+                                    <p>Location: 2nd floor, Library</p>
+                                    <p class="mb-1" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                    Free Time: 7:30PM
+                                    </p>
+                                    <p class="mb-0" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                    Date: 12/06/2019
+                                    </p>
+                                </div>
+                    </div>
+    
+                    <div class="col-md-3 col-sm-12">
+                            <div onclick="roomClick()" class="card">
+                    <img src="./study-room-4.jpg" width="100%" style="margin-bottom: 10px; border-radius: 30px">
+
+                                    <h3>Room 7</h3>
+                                    <p>Location: 2nd floor, Library</p>
+                                    <p class="mb-1" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                    Free Time: 10:30AM
+                                    </p>
+                                    <p class="mb-0" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                    Date: 12/09/2019
+                                    </p>
+                                </div>
+                    </div>
+    
+                    <div class="col-md-3 col-sm-12">
+                            <div  class="card">
+                    <img src="./study-room-1.jpg" width="100%" style="margin-bottom: 10px; border-radius: 30px">
+
+                                    <h3>Room 8</h3>
+                                    <p>Location: 2nd floor, Library</p>
+                                    <p class="mb-1" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                    Free Time: 2:30PM
+                                    </p>
+                                    <p class="mb-0" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                    Date: 12/10/2019
+                                    </p>
+                                </div>
+                    </div>
+                </div>
+<br>
+                <div class="row">
+                        <div class="col-md-3 col-sm-12">
+                                <div onclick="roomClick()" class="card">
+                    <img src="./study-room-3.jpg" width="100%" style="margin-bottom: 10px; border-radius: 30px">
+
+                                        <h3>Room 9</h3>
+                                        <p>Location: 3rd floor, Library</p>
+                                        <p class="mb-1" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                        Free Time: 5:30PM
+                                        </p>
+                                        <p class="mb-0" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                        Date: 12/11/2019
+                                        </p>
+                                    </div>
+                        </div>
+        
+                        <div class="col-md-3 col-sm-12">
+                                <div onclick="roomClick()" class="card">
+                    <img src="./study-room-2.jpg" width="100%" style="margin-bottom: 10px; border-radius: 30px">
+
+                                        <h3>Room 10</h3>
+                                        <p>Location: 3rd floor, Library</p>
+                                        <p class="mb-1" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                        Free Time: 6:30PM
+                                        </p>
+                                        <p class="mb-0" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                        Date: 12/12/2019
+                                        </p>
+                                    </div>
+                        </div>
+        
+                        <div class="col-md-3 col-sm-12">
+                                <div onclick="roomClick()" class="card">
+                    <img src="./study-room-4.jpg" width="100%" style="margin-bottom: 10px; border-radius: 30px">
+
+                                        <h3>Room 11</h3>
+                                        <p>Location: 3rd floor, Library</p>
+                                        <p class="mb-1" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                        Free Time: 8:30PM
+                                        </p>
+                                        <p class="mb-0" style="background: #d4d0d0;padding: 3px;border-radius: 40px;">
+                                        Date: 12/10/2019
+                                        </p>
+                                    </div>
+                        </div>
+        
+        <script type="text/javascript">
+
+            function roomClick(){
+                window.open("./room-details.html")
+            }
+
+            function deleteRoomClick(){
+                window.open("./room-details-delete.html")
+            }
+
+        </script>
+</body>
+
+</html>
